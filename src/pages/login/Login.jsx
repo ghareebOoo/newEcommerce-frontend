@@ -43,6 +43,7 @@ const Login = () => {
             if(changeState === "login"){
             const response = await login(data);
             if(response.data.status === "success"){
+                localStorage.setItem("token", response.data.token);
                 setUser(response.data.data.user);
                 navigate('/');
             }

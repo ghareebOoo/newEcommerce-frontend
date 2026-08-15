@@ -22,10 +22,11 @@ const AuthContextProvider = ({children}) => {
 
     const logOut = async ()=>{
         try{
-            await logout();
-            setUser(null);
+          await logout();
+          localStorage.removeItem("token");
+          setUser(null);
         }catch(err){
-            console.log(err);
+          console.log(err);
         }
     };
 
